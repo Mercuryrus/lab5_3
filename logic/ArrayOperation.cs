@@ -38,14 +38,21 @@ namespace lab5_3.logic
 
         public static void SumZeroElem()
         {
-            int firstZero = Array.IndexOf(array, 0);
-            int lastZero = Array.LastIndexOf(array, 0);
-            int sum = 0;
-            for (int i = firstZero; i<lastZero; i++)
-            {
-                sum += array[i];
+            if (array.Count(x=>x.Equals(0)) >= 2)
+            { 
+                int firstZero = Array.IndexOf(array, 0);
+                int lastZero = Array.LastIndexOf(array, 0);
+                int sum = 0;
+                for (int i = firstZero; i<lastZero; i++)
+                {
+                    sum += array[i];
+                }
+                Console.WriteLine($"\n Сумма между первым и последним нулевым эл-м:\n {sum}");
             }
-            Console.WriteLine($"\n Сумма между первым и последним нулевым эл-м:\n {sum}");
+            else
+            {
+                Console.WriteLine("\n Массив не содержит элементов равных 0\n Или их меньше двух");
+            }
         }
         public static void SortArray()
         {
