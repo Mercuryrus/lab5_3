@@ -13,7 +13,6 @@ namespace lab5_3.logic
     {
         public static void ArrayOper()
         {
-            //string read = File.ReadAllText(@"../../../logic/read.txt");
             using(FileStream reader = File.OpenRead(@"../../../logic/read.txt"))
             {
                 byte[] readbyte = new byte[reader.Length];
