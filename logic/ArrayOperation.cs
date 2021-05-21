@@ -21,8 +21,8 @@ namespace lab5_3.logic
                 reader.Read(readbyte, 0, readbyte.Length);
                 strarr = System.Text.Encoding.Default.GetString(readbyte);
             }
-
-            if (strarr.Any(c => char.IsLetter(c)) || strarr.Any(c => char.IsSymbol(c)))
+            
+            if (strarr.All(c => char.IsNumber(c)))
             {
                 Console.WriteLine(" В файле какая-то дичь. Не буду я с ней рабоать");
             }
@@ -33,7 +33,7 @@ namespace lab5_3.logic
                 foreach (int j in array)
                 {
                     Console.Write(" " + j);
-                }
+                }   
             }
         }
         public static string MultiplyEvenArray()
@@ -91,7 +91,7 @@ namespace lab5_3.logic
                 {
                     byte[] positive = System.Text.Encoding.Default.GetBytes(posStr);
                     writePos.Write(positive, 0, positive.Length);
-                    Console.WriteLine(posStr);
+                    Console.WriteLine($"\n\n{posStr}");
                 }
             }
             else
