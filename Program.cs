@@ -9,7 +9,11 @@ namespace lab5_3
             logic.ArrayOperation.ArrayReadTxt();
             Console.WriteLine(logic.ArrayOperation.MultiplyEvenArray());
             Console.WriteLine(logic.ArrayOperation.SumZeroElem());
-            logic.ArrayOperation.SortArray();
+            foreach (int i in logic.ArrayOperation.SortArray())
+            {
+                Console.Write($" {i}");
+            }
+            logic.ArrayOperation.WriteInTxt();
         }
     }
 }
