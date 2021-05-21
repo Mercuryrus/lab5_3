@@ -45,7 +45,7 @@ namespace lab5_3.logic
                 Console.WriteLine($"\nСумма между первым и последним нулевым эл-м:\n{sum}");
 
                 Array.Sort(array);
-                array = array.Reverse().ToArray();
+                Array.Reverse(array);
                 Console.WriteLine("\nОтсортированный массив:");
                 foreach (int j in array)
                 {
