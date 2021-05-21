@@ -18,8 +18,14 @@ namespace lab5_3.logic
             byte[] readbyte = new byte[reader.Length];
             reader.Read(readbyte, 0, readbyte.Length);
             string strarr = System.Text.Encoding.Default.GetString(readbyte);
-            array = strarr.Split(' ').Select(x => int.Parse(x)).ToArray();
-
+            if (strarr.Any(c=>char.IsLetter(c)))
+            {
+                Console.WriteLine(" В файле какая-то дичь. Не буду я с ней рабоать");
+            }
+            else
+            {
+                array = strarr.Split(' ').Select(x => int.Parse(x)).ToArray();
+            }
             Console.WriteLine(" Прочитаный массив: ");
             foreach (int j in array)
             {
