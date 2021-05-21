@@ -11,51 +11,51 @@ namespace lab5_3.logic
 {
     class ArrayOperation
     {
-        public static void ArrayOper()
+        public static int[] array = Array.Empty<int>();
+        public static void ArrayReadTxt()
         {
-            using(FileStream reader = File.OpenRead(@"../../../logic/read.txt"))
+            using FileStream reader = File.OpenRead(@"../../../logic/read.txt");
+            byte[] readbyte = new byte[reader.Length];
+            reader.Read(readbyte, 0, readbyte.Length);
+            string strarr = System.Text.Encoding.Default.GetString(readbyte);
+            array = strarr.Split(' ').Select(x => int.Parse(x)).ToArray();
+
+            Console.WriteLine(" Прочитаный массив: ");
+            foreach (int j in array)
             {
-                byte[] readbyte = new byte[reader.Length];
-                reader.Read(readbyte, 0, readbyte.Length);
-                string strarr = System.Text.Encoding.Default.GetString(readbyte);
-                int[] array = strarr.Split(' ').Select(x => int.Parse(x)).ToArray();
-
-                Console.WriteLine("Прочитаный массив:");
-                foreach(int j in array)
-                {
-                    Console.Write(" " + j);
-                }
-                
-                
-                int mult = 1;
-                for (int i = 0; i < array.Length; i += 2)
-                {
-                    mult *= array[i];
-                }
-                Console.WriteLine($"\n\nПроизведение четных элементов массива:\n{mult}");
-
-                int firstZero = Array.IndexOf(array, 0);
-                int lastZero = Array.LastIndexOf(array, 0);
-                int sum = 0;
-                for (int i = firstZero; i<lastZero; i++)
-                {
-                    sum += array[i];
-                }
-                Console.WriteLine($"\nСумма между первым и последним нулевым эл-м:\n{sum}");
-
-                Array.Sort(array);
-                Array.Reverse(array);
-                Console.WriteLine("\nОтсортированный массив:");
-                foreach (int j in array)
-                {
-                    Console.Write(" " + j);
-                }
-
+                Console.Write(" " + j);
             }
-
-            
-            
+        }
+        public static void MultiplyEvenArray()
+        {
+            int mult = 1;
+            for (int i = 0; i < array.Length; i += 2)
+            {
+                mult *= array[i];
+            }
+            Console.WriteLine($"\n\n Произведение четных элементов массива:\n {mult}");
         }
 
+        public static void SumZeroElem()
+        {
+            int firstZero = Array.IndexOf(array, 0);
+            int lastZero = Array.LastIndexOf(array, 0);
+            int sum = 0;
+            for (int i = firstZero; i<lastZero; i++)
+            {
+                sum += array[i];
+            }
+            Console.WriteLine($"\n Сумма между первым и последним нулевым эл-м:\n {sum}");
+        }
+        public static void SortArray()
+        {
+            Array.Sort(array);
+            Array.Reverse(array);
+            Console.WriteLine("\n Отсортированный массив:");
+            foreach (int j in array)
+            {
+                Console.Write(" " + j);
+            }
+        }   
     }
 }

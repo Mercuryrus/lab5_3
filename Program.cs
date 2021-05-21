@@ -6,7 +6,10 @@ namespace lab5_3
     {
         static void Main()
         {
-            lab5_3.logic.ArrayOperation.ArrayOper();
+            logic.ArrayOperation.ArrayReadTxt();
+            logic.ArrayOperation.MultiplyEvenArray();
+            logic.ArrayOperation.SumZeroElem();
+            logic.ArrayOperation.SortArray();
         }
     }
 }
