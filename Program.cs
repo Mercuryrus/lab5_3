@@ -7,8 +7,8 @@ namespace lab5_3
         static void Main()
         {
             logic.ArrayOperation.ArrayReadTxt();
-            logic.ArrayOperation.MultiplyEvenArray();
-            logic.ArrayOperation.SumZeroElem();
+            Console.WriteLine(logic.ArrayOperation.MultiplyEvenArray());
+            Console.WriteLine(logic.ArrayOperation.SumZeroElem());
             logic.ArrayOperation.SortArray();
         }
     }
